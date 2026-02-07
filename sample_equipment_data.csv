@@ -1,33 +1,16 @@
 Equipment Name,Type,Flowrate,Pressure,Temperature
-Pump-001,Pump,150.5,25.3,45.2
-Pump-002,Pump,175.8,28.1,48.6
-Pump-003,Pump,142.3,24.0,43.8
-Reactor-001,Reactor,0,15.8,180.5
-Reactor-002,Reactor,0,18.2,195.3
-Reactor-003,Reactor,0,16.5,175.8
-Heat Exchanger-001,Heat Exchanger,200.3,8.5,95.0
-Heat Exchanger-002,Heat Exchanger,185.7,9.2,88.5
-Heat Exchanger-003,Heat Exchanger,210.1,7.8,102.3
-Compressor-001,Compressor,320.5,45.6,65.2
-Compressor-002,Compressor,298.4,42.3,58.9
-Compressor-003,Compressor,345.2,48.1,72.4
-Distillation Column-001,Distillation Column,125.8,12.4,145.6
-Distillation Column-002,Distillation Column,138.2,14.1,152.3
-Valve-001,Valve,85.3,35.2,52.1
-Valve-002,Valve,92.1,38.5,55.3
-Valve-003,Valve,78.6,32.8,48.7
-Valve-004,Valve,88.9,36.1,51.6
-Tank-001,Tank,0,5.2,25.0
-Tank-002,Tank,0,4.8,28.3
-Tank-003,Tank,0,5.5,22.5
-Separator-001,Separator,165.4,18.9,78.2
-Separator-002,Separator,172.8,20.3,82.5
-Mixer-001,Mixer,95.6,8.2,35.4
-Mixer-002,Mixer,102.3,9.1,38.6
-Filter-001,Filter,55.2,6.5,42.1
-Filter-002,Filter,48.7,5.8,39.8
-Filter-003,Filter,52.4,6.2,40.5
-Heater-001,Heater,78.5,12.3,220.5
-Heater-002,Heater,82.1,13.5,235.8
-Cooler-001,Cooler,95.2,10.5,15.3
-Cooler-002,Cooler,88.6,9.8,12.8
+Pump-1,Pump,120,5.2,110
+Compressor-1,Compressor,95,8.4,95
+Valve-1,Valve,60,4.1,105
+HeatExchanger-1,HeatExchanger,150,6.2,130
+Pump-2,Pump,132,5.6,118
+Valve-2,Valve,58,4.0,102
+Reactor-1,Reactor,140,7.5,140
+Pump-3,Pump,125,5.3,115
+Condenser-1,Condenser,160,6.8,125
+Compressor-2,Compressor,100,8.0,98
+HeatExchanger-2,HeatExchanger,155,6.3,132
+Valve-3,Valve,62,4.2,107
+Pump-4,Pump,130,5.9,119
+Reactor-2,Reactor,145,7.2,138
+Condenser-2,Condenser,165,6.9,128
