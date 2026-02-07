@@ -221,10 +221,25 @@ class DatasetSummaryView(APIView):
 
 class GeneratePDFReportView(APIView):
     """Generate PDF report for a dataset."""
+    permission_classes = [permissions.AllowAny]  # We handle auth manually for query param support
     
     def get(self, request, pk):
+        # Support auth token via query parameter (for direct browser downloads)
+        auth_token = request.GET.get('auth')
+        if auth_token:
+            from rest_framework.authtoken.models import Token
+            try:
+                token = Token.objects.get(key=auth_token)
+                user = token.user
+            except Token.DoesNotExist:
+                return Response({'error': 'Invalid token'}, status=status.HTTP_401_UNAUTHORIZED)
+        elif request.user.is_authenticated:
+            user = request.user
+        else:
+            return Response({'error': 'Authentication required'}, status=status.HTTP_401_UNAUTHORIZED)
+        
         try:
-            dataset = EquipmentDataset.objects.get(pk=pk, user=request.user)
+            dataset = EquipmentDataset.objects.get(pk=pk, user=user)
         except EquipmentDataset.DoesNotExist:
             return Response(
                 {'error': 'Dataset not found'},
