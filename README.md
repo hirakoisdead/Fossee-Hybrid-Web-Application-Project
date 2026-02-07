@@ -139,14 +139,22 @@ python manage.py test equipment.tests
 ## Screenshots
 
 ### Web Application
-- Clean white theme with solid colors
-- Interactive Chart.js visualizations
-- Responsive dashboard layout
+
+![Login Page](./backend/images/1.png)
+
+![Register Page](./backend/images/2.png)
+
+![Dashboard View](./backend/images/3.png)
+
+![Charts and Analytics](./backend/images/4.png)
 
 ### Desktop Application
-- Native PyQt5 interface
-- Matplotlib charts matching web design
-- Cross-platform compatibility
+
+![Desktop Login](./backend/images/5.png)
+
+![Desktop Dashboard](./backend/images/6.png)
+
+![Desktop Charts](./backend/images/7.png)
 
 ## License
 

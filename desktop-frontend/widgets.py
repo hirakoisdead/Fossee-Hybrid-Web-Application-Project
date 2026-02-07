@@ -164,54 +164,94 @@ class LoginWidget(QWidget):
     def init_ui(self):
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignCenter)
-        layout.setSpacing(20)
+        layout.setSpacing(24)
         
-        # Title
+        # Title - larger font
         title = QLabel("Chemical Equipment Visualizer")
-        title.setFont(QFont("Segoe UI", 24, QFont.Bold))
+        title.setFont(QFont("Segoe UI", 28, QFont.Bold))
         title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
         
         subtitle = QLabel("Sign in to your account")
+        subtitle.setFont(QFont("Segoe UI", 14))
         subtitle.setStyleSheet(f"color: {COLORS['text_light']};")
         subtitle.setAlignment(Qt.AlignCenter)
         layout.addWidget(subtitle)
         
-        layout.addSpacing(20)
+        layout.addSpacing(30)
         
-        # Form container
+        # Form container - wider
         form_widget = QWidget()
-        form_widget.setFixedWidth(400)
+        form_widget.setFixedWidth(450)
         form_layout = QVBoxLayout(form_widget)
+        form_layout.setSpacing(12)
         
-        # Username
+        # Username - larger label and input
+        username_label = QLabel("Username")
+        username_label.setFont(QFont("Segoe UI", 13))
+        form_layout.addWidget(username_label)
         self.username_input = QLineEdit()
-        self.username_input.setPlaceholderText("Username")
-        form_layout.addWidget(QLabel("Username"))
+        self.username_input.setPlaceholderText("Enter your username")
+        self.username_input.setFont(QFont("Segoe UI", 13))
+        self.username_input.setMinimumHeight(45)
+        self.username_input.setStyleSheet("""
+            QLineEdit {
+                padding: 12px 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+            QLineEdit:focus {
+                border-color: #667eea;
+            }
+        """)
         form_layout.addWidget(self.username_input)
         
-        # Password
+        form_layout.addSpacing(8)
+        
+        # Password - larger label and input
+        password_label = QLabel("Password")
+        password_label.setFont(QFont("Segoe UI", 13))
+        form_layout.addWidget(password_label)
         self.password_input = QLineEdit()
-        self.password_input.setPlaceholderText("Password")
+        self.password_input.setPlaceholderText("Enter your password")
         self.password_input.setEchoMode(QLineEdit.Password)
-        form_layout.addWidget(QLabel("Password"))
+        self.password_input.setFont(QFont("Segoe UI", 13))
+        self.password_input.setMinimumHeight(45)
+        self.password_input.setStyleSheet("""
+            QLineEdit {
+                padding: 12px 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+            QLineEdit:focus {
+                border-color: #667eea;
+            }
+        """)
         form_layout.addWidget(self.password_input)
         
-        form_layout.addSpacing(10)
+        form_layout.addSpacing(16)
         
         # Error label
         self.error_label = QLabel()
+        self.error_label.setFont(QFont("Segoe UI", 12))
         self.error_label.setStyleSheet(f"color: {COLORS['error']};")
         self.error_label.hide()
         form_layout.addWidget(self.error_label)
         
-        # Login button
+        # Login button - larger
         self.login_btn = QPushButton("Sign In")
+        self.login_btn.setFont(QFont("Segoe UI", 14, QFont.Bold))
+        self.login_btn.setMinimumHeight(48)
         self.login_btn.clicked.connect(self.handle_login)
         form_layout.addWidget(self.login_btn)
         
-        # Register link
+        form_layout.addSpacing(12)
+        
+        # Register link - larger
         register_label = QLabel("<a href='#'>Don't have an account? Create one</a>")
+        register_label.setFont(QFont("Segoe UI", 12))
         register_label.setAlignment(Qt.AlignCenter)
         register_label.linkActivated.connect(lambda: self.switch_to_register.emit())
         form_layout.addWidget(register_label)
@@ -260,56 +300,103 @@ class RegisterWidget(QWidget):
     def init_ui(self):
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignCenter)
-        layout.setSpacing(20)
+        layout.setSpacing(24)
         
         title = QLabel("Create Account")
-        title.setFont(QFont("Segoe UI", 24, QFont.Bold))
+        title.setFont(QFont("Segoe UI", 28, QFont.Bold))
         title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
         
         subtitle = QLabel("Get started with equipment analysis")
+        subtitle.setFont(QFont("Segoe UI", 14))
         subtitle.setStyleSheet(f"color: {COLORS['text_light']};")
         subtitle.setAlignment(Qt.AlignCenter)
         layout.addWidget(subtitle)
         
-        layout.addSpacing(20)
+        layout.addSpacing(30)
         
         form_widget = QWidget()
-        form_widget.setFixedWidth(400)
+        form_widget.setFixedWidth(450)
         form_layout = QVBoxLayout(form_widget)
+        form_layout.setSpacing(10)
         
+        # Input field stylesheet
+        input_style = """
+            QLineEdit {
+                padding: 12px 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+            QLineEdit:focus {
+                border-color: #667eea;
+            }
+        """
+        
+        # Username
+        username_label = QLabel("Username")
+        username_label.setFont(QFont("Segoe UI", 13))
+        form_layout.addWidget(username_label)
         self.username_input = QLineEdit()
-        self.username_input.setPlaceholderText("Username")
-        form_layout.addWidget(QLabel("Username"))
+        self.username_input.setPlaceholderText("Choose a username")
+        self.username_input.setFont(QFont("Segoe UI", 13))
+        self.username_input.setMinimumHeight(45)
+        self.username_input.setStyleSheet(input_style)
         form_layout.addWidget(self.username_input)
         
+        # Email
+        email_label = QLabel("Email")
+        email_label.setFont(QFont("Segoe UI", 13))
+        form_layout.addWidget(email_label)
         self.email_input = QLineEdit()
-        self.email_input.setPlaceholderText("Email")
-        form_layout.addWidget(QLabel("Email"))
+        self.email_input.setPlaceholderText("Enter your email")
+        self.email_input.setFont(QFont("Segoe UI", 13))
+        self.email_input.setMinimumHeight(45)
+        self.email_input.setStyleSheet(input_style)
         form_layout.addWidget(self.email_input)
         
+        # Password
+        password_label = QLabel("Password")
+        password_label.setFont(QFont("Segoe UI", 13))
+        form_layout.addWidget(password_label)
         self.password_input = QLineEdit()
-        self.password_input.setPlaceholderText("Password")
+        self.password_input.setPlaceholderText("Create a password")
         self.password_input.setEchoMode(QLineEdit.Password)
-        form_layout.addWidget(QLabel("Password"))
+        self.password_input.setFont(QFont("Segoe UI", 13))
+        self.password_input.setMinimumHeight(45)
+        self.password_input.setStyleSheet(input_style)
         form_layout.addWidget(self.password_input)
         
+        # Confirm Password
+        confirm_label = QLabel("Confirm Password")
+        confirm_label.setFont(QFont("Segoe UI", 13))
+        form_layout.addWidget(confirm_label)
         self.confirm_input = QLineEdit()
-        self.confirm_input.setPlaceholderText("Confirm Password")
+        self.confirm_input.setPlaceholderText("Confirm your password")
         self.confirm_input.setEchoMode(QLineEdit.Password)
-        form_layout.addWidget(QLabel("Confirm Password"))
+        self.confirm_input.setFont(QFont("Segoe UI", 13))
+        self.confirm_input.setMinimumHeight(45)
+        self.confirm_input.setStyleSheet(input_style)
         form_layout.addWidget(self.confirm_input)
         
+        form_layout.addSpacing(12)
+        
         self.error_label = QLabel()
+        self.error_label.setFont(QFont("Segoe UI", 12))
         self.error_label.setStyleSheet(f"color: {COLORS['error']};")
         self.error_label.hide()
         form_layout.addWidget(self.error_label)
         
         self.register_btn = QPushButton("Create Account")
+        self.register_btn.setFont(QFont("Segoe UI", 14, QFont.Bold))
+        self.register_btn.setMinimumHeight(48)
         self.register_btn.clicked.connect(self.handle_register)
         form_layout.addWidget(self.register_btn)
         
+        form_layout.addSpacing(12)
+        
         login_label = QLabel("<a href='#'>Already have an account? Sign in</a>")
+        login_label.setFont(QFont("Segoe UI", 12))
         login_label.setAlignment(Qt.AlignCenter)
         login_label.linkActivated.connect(lambda: self.switch_to_login.emit())
         form_layout.addWidget(login_label)
