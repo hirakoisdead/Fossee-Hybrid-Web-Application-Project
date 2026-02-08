@@ -160,6 +160,7 @@ python manage.py test equipment.tests
 ##  Contact
 
 **Developer**: Tanish Kumar Kar
+
 **Email**: tanishbiswas09@gmail.com
 
 ---
