@@ -26,10 +26,8 @@ export default function DatasetHistory({ datasets, selectedId, onSelect, onDelet
     const handleDownloadPDF = async (e, id) => {
         e.stopPropagation();
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(`/api/datasets/${id}/report/`, {
-                headers: { 'Authorization': `Token ${token}` }
-            });
+            const reportUrl = datasetService.getReportUrl(id);
+            const response = await fetch(reportUrl);
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');

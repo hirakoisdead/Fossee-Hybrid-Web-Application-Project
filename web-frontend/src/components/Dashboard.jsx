@@ -70,10 +70,8 @@ export default function Dashboard({ user, onLogout }) {
     const handleDownloadPDF = async () => {
         if (!selectedDataset) return;
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(`/api/datasets/${selectedDataset.id}/report/`, {
-                headers: { 'Authorization': `Token ${token}` }
-            });
+            const reportUrl = datasetService.getReportUrl(selectedDataset.id);
+            const response = await fetch(reportUrl);
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
