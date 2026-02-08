@@ -156,6 +156,12 @@ python manage.py test equipment.tests
 
 ![Desktop Charts](./backend/images/7.png)
 
-## License
 
-MIT License
+##  Contact
+
+**Developer**: Tanish Kumar Kar
+**Email**: tanishbiswas09@gmail.com
+
+---
+
+**Thank you for reviewing this submission!**
